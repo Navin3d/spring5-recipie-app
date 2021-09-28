@@ -2,13 +2,9 @@ package navin.springframework.domain;
 
 import lombok.*;
 
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Data
 @EqualsAndHashCode(exclude = {"recipie"})
@@ -21,7 +17,7 @@ public class Category {
 
 	private String description;
 
-	@ManyToMany(mappedBy = "category")
-	private Set<Recipie> recipie;
+	@OneToMany(mappedBy = "category")
+	private Set<Recipie> recipie = new HashSet<>();
 
 }

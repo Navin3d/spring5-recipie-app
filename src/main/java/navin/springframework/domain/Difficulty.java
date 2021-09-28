@@ -2,6 +2,6 @@ package navin.springframework.domain;
 
 public enum Difficulty {
 
-	EASY, MODERATE, HARD
+	EASY, MODERATE, KIND_oF_HARD, HARD
 
 }

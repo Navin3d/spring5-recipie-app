@@ -1,0 +1,17 @@
+#spring:
+#    jpa:
+#      hibernate:
+#        ddl-auto: update
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console
+
+#logging.level.navin.springframework = debug
+#spring.security.user.name = Navin
+#spring.security.user.password = navin@3d
+#  jpa:
+#    hibernate:
+#      ddl-auto: none

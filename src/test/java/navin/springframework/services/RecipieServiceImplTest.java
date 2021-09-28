@@ -1,5 +1,7 @@
 package navin.springframework.services;
 
+import navin.springframework.converters.RecipieCommandToRecipie;
+import navin.springframework.converters.RecipieToRecipieCommand;
 import navin.springframework.domain.Recipie;
 import navin.springframework.repositories.RecipieRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,10 +22,13 @@ class RecipieServiceImplTest {
     @Mock
     RecipieRepository recipieRepository;
 
+    RecipieToRecipieCommand recipieToRecipieCommand;
+    RecipieCommandToRecipie recipieCommandToRecipie;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        recipieService = new RecipieServiceImpl(recipieRepository);
+        recipieService = new RecipieServiceImpl(recipieRepository, recipieToRecipieCommand, recipieCommandToRecipie);
     }
 
     @Test

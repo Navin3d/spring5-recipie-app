@@ -2,11 +2,13 @@ package navin.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
+@ToString(exclude = {"recipie"})
 @EqualsAndHashCode(exclude = {"recipie"})
 @Entity
 public class Ingredients {
@@ -18,7 +20,7 @@ public class Ingredients {
 	private String description;
 	private BigDecimal amount;
 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne
 	private UnitOfMeasure unitOfMeasure;
 
 	@ManyToOne

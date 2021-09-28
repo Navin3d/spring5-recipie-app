@@ -53,7 +53,7 @@ class IndexControllerTest {
         recipies.add(new Recipie());
 
         Recipie recipie = new Recipie();
-        recipie.setId(1L);
+        recipie.setId(1l);
         recipies.add(recipie);
 
         when(recipieService.getRecipies()).thenReturn(recipies);

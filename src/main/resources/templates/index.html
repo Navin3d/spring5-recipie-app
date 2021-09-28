@@ -1,20 +1,62 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Recipie Home</title>
+	<meta charset="UTF-8"/>
+	<title>Spring Boot Thymeleaf - Bootstrap WebJars</title>
+
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.0.1/css/bootstrap.min.css} "/>
 </head>
 <body>
-	<h1>My Recipe</h1>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Description</th>
-		</tr>
-		<tr th:each="recipie: ${recipies}">
-			<td th:text="${recipie.id}">143</td>
-			<td th:text="${recipie.description}">Descriptions of the recipie is displayed here...</td>
-		</tr>
-	</table>
+
+<div class="container-fluid" style="margin-top: 20px">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-primary">
+
+				<div class="panel-heading">
+					<h1 class="panel-title">My Recipes!</h1>
+				</div>
+				<div class="panel-body">
+					<div class="table-responsive" th:if="${not #lists.isEmpty(recipies)}">
+						<table class="table table-hover ">
+							<thead class="thead-inverse">
+							<tr>
+								<th>ID</th>
+								<th>Description</th>
+								<th>View</th>
+								<th>Update</th>
+								<th>Delete</th>
+							</tr>
+							</thead>
+							<tr th:remove="all">
+								<td>123</td>
+								<td>Tasty Goodnees 1</td>
+								<td><a href="#">View</a></td>
+							</tr>
+							<tr th:remove="all">
+								<td>12333</td>
+								<td>Tasty Goodnees 2</td>
+								<td><a href="#">View</a></td>
+							</tr>
+							<tr th:each="recipe : ${recipies}">
+								<!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
+								<td th:text="${recipe.id}">334</td>
+								<td th:text="${recipe.description}">Tasty Goodnees 3</td>
+								<td><a href="#" th:href="@{'/recipie/' + ${recipe.id + '/show'}}">View</a></td>
+								<td><a href="#" th:href="@{'/recipie/' + ${recipe.id + '/update'}}">Update</a></td>
+								<td><a href="#" th:href="@{'/recipie/' + ${recipe.id + '/delete'}}">Delete</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.0.1/js/bootstrap.min.js}"></script>
+
 </body>
 </html>
